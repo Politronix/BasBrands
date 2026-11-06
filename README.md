@@ -58,8 +58,8 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 
 - Ventas netas del período: $360,4M; margen bruto 30,9%.
 - EBITDA del período: $2,6M (0,7%).
-- 10 contenedores; caja mínima $14,8M en julio 2027 (uso máximo de caja ≈$85M de los $100M iniciales).
+- 10 contenedores; caja mínima $14,8M en julio 2027 (uso máximo de caja ≈$85M de los $100M iniciales); caja final marzo 2028 ≈$27,0M.
 
 ## Nota sobre el horizonte
 
-El flujo no incluye anticipos a Aliex de contenedores que llegarían después de marzo 2028, por lo que la caja de los últimos meses aparece más alta de lo que sería en un año continuo.
+A Aliex se le paga antes de la llegada (anticipo = llegada − producción − tránsito; saldo = llegada − tránsito). Para no subestimar los pagos de feb y mar 2028, el Flujo de caja asume que después de marzo 2028 siguen llegando contenedores al mismo ritmo del último mes (`Demanda!U15`), y registra sus anticipos y saldos dentro del horizonte.
