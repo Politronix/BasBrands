@@ -40,6 +40,7 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 - **Mix de compra del contenedor** = participación de cada SKU en el sell-in total del período, para no acumular stock de SKU que una cadena no vende.
 - **EBITDA** = margen bruto − gastos operacionales (administración y finanzas, comercial, logística, marketing). El factoring y el impuesto van bajo el EBITDA.
 - **Fees GBT y Juan Bas**: % de la venta neta; solo se devengan si el EBITDA del mes queda sobre el mínimo (5% de la venta). Lo no pagado se difiere.
+- **Comisión Rodrigo Mena**: % del sell-out a PVP neto (`p_ComRodrigo`) más % del margen bruto del mes (`p_ComRodrigoMB`, 0 en meses con margen negativo). Se pueden usar por separado (dejando el otro en 0%) o combinados. Se suma al fijo mensual.
 - **Honorarios** (Juan Bas, Rodrigo Mena): gasto bruto en el EERR; en el flujo se paga el líquido y la retención va al F29 del mes siguiente. Si el fijo de Rodrigo es líquido, se calcula el bruto (gross-up).
 - **GBT y Globalship**: factura afecta; el flujo paga neto + IVA y el IVA entra como crédito fiscal.
 - **Factoring**: costo = factura con IVA × % factorizado × tasa mensual × meses de plazo Walmart.
