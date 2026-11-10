@@ -32,6 +32,7 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 
 - **Costo en plaza** = FOB USD × factor sobre FOB × tipo de cambio.
 - **Precio lista Walmart** = PVP bruto / (1 + IVA) × (1 − margen frontal retail).
+- **PVP de pote y doypack** = costo en plaza / (1 − `p_MgObjetivo`) / (1 − acuerdos) / (1 − margen frontal) × (1 + IVA), redondeado a la terminación 90 más cercana. Con `p_MgObjetivo` = 30% cada SKU queda cerca de 30% de margen bruto. Los squeeze mantienen su PVP.
 - **Ventas netas** = precio lista − acuerdos comerciales (rappel, no devolución, merma, centralización, B2B, descuento).
 - **Sell-out** = salas activas × rotación (unid/sala/semana) × semanas por mes × estacionalidad × mix del SKU en la cadena.
 - **Llenado de cañería** = salas nuevas × rotación × (semanas de stock en sala + semanas en CD).
@@ -49,7 +50,7 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 
 ## Pendientes de confirmar
 
-- PVP de pote, DPK 380 y DPK 850 (hoy provisorios, calculados para ≈30% de margen).
+- PVP de pote y doypack (hoy calculados para el margen objetivo de 30%).
 - Capacidad real de cajas DPK 380/850 por contenedor (Aliex).
 - Cajas por pallet por formato (estimadas).
 - Cobertura de stock objetivo (0,75 meses). Con 0,5 hay quiebre en julio 2027; con 1,0 la caja mínima baja a ≈$1,8M.
