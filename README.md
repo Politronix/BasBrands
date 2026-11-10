@@ -12,7 +12,7 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 |---|---|
 | Portada | Índice, convenciones de color y definiciones |
 | Parámetros | Todos los supuestos escalares editables (rangos con nombre `p_*` y tarifas Globalship `g_*`) |
-| Productos | 24 SKU Aliex (incluye DPK 590 g de mayonesa, ketchup y mostaza): FOB, unidades por caja, capacidad de contenedor, cajas por pallet, PVP, switch Activo y surtido por cadena, mix calculado |
+| Productos | 27 SKU Aliex (incluye los formatos ponderados DPK 490 g y DPK 590 g, marcados "POND"): FOB, unidades por caja, capacidad de contenedor, cajas por pallet, PVP, switch Activo y surtido por cadena, mix calculado |
 | Supuestos mensuales | Salas activas por cadena, ajuste manual de contenedores (+/−), estacionalidad, degustaciones, marketing digital, fijo Rodrigo Mena, aportes |
 | Cadena de valor | FOB → costo en plaza → PVP → precio lista Walmart → acuerdos desagregados → precio neto → margen, por SKU |
 | Contenedor | Contenedor 20' mix según el mix de compra; control de cubicaje |
@@ -37,7 +37,7 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 - **Llenado de cañería** = salas nuevas × rotación × (semanas de stock en sala + semanas en CD).
 - **Sell-in** (lo que se factura) = sell-out + cañería.
 - **Contenedores que llegan** (automático, hoja Demanda): stock objetivo al cierre = sell-in del mes siguiente × cobertura (`p_Cobertura`, 0,75 meses). Si el stock inicial no alcanza para el sell-in del mes más el stock objetivo, se piden los contenedores necesarios (redondeo hacia arriba). La fila de ajuste manual en Supuestos mensuales suma o resta contenedores. Los pagos a Aliex se fechan según la llegada: anticipo = llegada − producción − tránsito; saldo contra BL = llegada − tránsito.
-- **DPK 590 g**: FOB y PVP por kg = `p_PondKg380` × precio por kg del DPK 380 + (1 − `p_PondKg380`) × precio por kg del DPK 850 del mismo sabor (PVP redondeado a terminación 90). Su participación dentro del Doypack es `p_SplitDPK590` (0% = no se vende); el DPK 850 toma el resto del Doypack.
+- **DPK 490 g y DPK 590 g (POND)**: formatos ficticios. FOB y PVP por kg = peso × precio por kg del DPK 380 + (1 − peso) × precio por kg del DPK 850 del mismo sabor (PVP redondeado a terminación 90). Pesos: `p_PondKg490` (80%) y `p_PondKg380` (60%, para el 590). Participación dentro del Doypack: `p_SplitDPK490` y `p_SplitDPK590` (0% = no se vende); el DPK 850 toma el resto del Doypack.
 - **Mix de compra del contenedor** = participación de cada SKU en el sell-in total del período, para no acumular stock de SKU que una cadena no vende.
 - **EBITDA** = margen bruto − gastos operacionales (administración y finanzas, comercial, logística, marketing). El factoring y el impuesto van bajo el EBITDA.
 - **Fees GBT y Juan Bas**: % de la venta neta; solo se devengan si el EBITDA del mes queda sobre el mínimo (5% de la venta). Lo no pagado se difiere.
