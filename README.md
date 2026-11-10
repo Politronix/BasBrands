@@ -21,6 +21,7 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 | EERR | Ventas netas, margen por sabor y formato, gastos por área, EBITDA, factoring, impuesto, resultado neto |
 | Flujo de caja | Cobranza/factoring, pagos Aliex (anticipo y saldo), internación, IVA, F29, honorarios líquidos |
 | Resumen | KPIs, controles del modelo y gráfico mensual |
+| Sensibilidad Aliex | EBITDA del período según el descuento que se negocie con Aliex sobre el FOB (0% a 20%), con el PVP fijo |
 
 ## Estructura de las tablas
 
@@ -30,7 +31,7 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 
 ## Lógica principal
 
-- **Costo en plaza** = FOB USD × factor sobre FOB × tipo de cambio.
+- **Costo en plaza** = FOB USD × (1 − descuento Aliex `p_DescAliex`) × factor sobre FOB × tipo de cambio. El descuento no cambia el PVP, que se calcula con el FOB de lista.
 - **Precio lista Walmart** = PVP bruto / (1 + IVA) × (1 − margen frontal retail).
 - **PVP de pote y doypack** = costo en plaza / (1 − `p_MgObjetivo`) / (1 − acuerdos) / (1 − margen frontal) × (1 + IVA), redondeado a la terminación 90 más cercana. Con `p_MgObjetivo` = 30% cada SKU queda cerca de 30% de margen bruto. Los squeeze mantienen su PVP.
 - **Ventas netas** = precio lista − acuerdos comerciales (rappel, no devolución, merma, centralización, B2B, descuento).
