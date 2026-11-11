@@ -32,7 +32,8 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 
 - **Costo en plaza** = FOB USD × factor sobre FOB × tipo de cambio.
 - **Precio lista Walmart** = PVP bruto / (1 + IVA) × (1 − margen frontal retail).
-- **Ventas netas** = precio lista − acuerdos comerciales (rappel, no devolución, merma, centralización, B2B, descuento).
+- **Margen frontal retail** = 35% − rappel − merma (fórmula en Parámetros).
+- **Ventas netas** = precio lista − acuerdos comerciales (rappel, merma, fee logístico, reposición, descuento / promoción). Cada acuerdo es un rango con nombre (`p_Rappel`, `p_Merma`, `p_FeeLogistico`, `p_Reposicion`, `p_Dcto`) y se desagrega por SKU en Cadena de valor y por mes en EERR.
 - **Sell-out** = salas activas × rotación (unid/sala/semana) × semanas por mes × estacionalidad × mix del SKU en la cadena.
 - **Llenado de cañería** = salas nuevas × rotación × (semanas de stock en sala + semanas en CD).
 - **Sell-in** (lo que se factura) = sell-out + cañería.
@@ -53,12 +54,14 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 - Cobertura de stock objetivo (0,75 meses). Con 0,5 hay quiebre en julio 2027; con 1,0 la caja mínima baja a ≈$1,8M.
 - Rotaciones por cadena y rampa de salas (validar con Rodrigo Mena).
 - Montos de contabilidad, software, marketing y % de fees.
+- Descuento / promoción: hoy en blanco (0%). La nota indica 25% del tiempo con 20% de descuento (≈5% de la venta) a provisionar en el EERR.
 
 ## Resultados con los supuestos actuales
 
-- Ventas netas del período: $360,4M; margen bruto 30,9%.
-- EBITDA del período: $2,6M (0,7%).
-- 10 contenedores; caja mínima $14,8M en julio 2027 (uso máximo de caja ≈$85M de los $100M iniciales); caja final marzo 2028 ≈$27,0M.
+- Acuerdos comerciales: 16% del precio lista (rappel 5%, merma 2%, fee logístico 6%, reposición 3%, descuento 0%); margen frontal 28%.
+- Ventas netas del período: $355,5M; margen bruto 30,0%.
+- EBITDA del período: $9,8M (2,8%); resultado neto $2,9M.
+- 10 contenedores; caja mínima $15,9M en marzo 2027 (uso máximo de caja ≈$84,1M de los $100M iniciales); caja final marzo 2028 ≈$30,9M.
 
 ## Nota sobre el horizonte
 
