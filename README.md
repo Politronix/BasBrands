@@ -13,7 +13,7 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 | Portada | Índice, convenciones de color y definiciones |
 | Parámetros | Todos los supuestos escalares editables (rangos con nombre `p_*` y tarifas Globalship `g_*`) |
 | Productos | 21 SKU Aliex: FOB, unidades por caja, capacidad de contenedor, cajas por pallet, PVP, switch Activo y surtido por cadena, mix calculado |
-| Supuestos mensuales | Salas activas por cadena, ajuste manual de contenedores (+/−), estacionalidad, degustaciones, marketing digital, fijo Rodrigo Mena, aportes, % de descuento por SKU y mes (activaciones) |
+| Supuestos mensuales | Salas activas por cadena, ajuste manual de contenedores (+/−), estacionalidad, degustaciones, marketing digital, fijo Rodrigo Mena, aportes, % de descuento y % de alza en sell-out por SKU y mes (activaciones) |
 | Cadena de valor | FOB → costo en plaza → PVP → precio lista Walmart → acuerdos desagregados → precio neto → margen, por SKU |
 | Contenedor | Contenedor 20' mix según el mix de compra; control de cubicaje |
 | Demanda | Cálculo automático de contenedores que llegan; por SKU y mes: sell-out, llenado de cañería, sell-in, llegadas, stock, ventas, costo, cajas y pallets |
@@ -34,8 +34,9 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 - **Precio lista Walmart** = PVP bruto / (1 + IVA) × (1 − margen frontal retail).
 - **Margen frontal retail** = 35% − rappel − merma (fórmula en Parámetros).
 - **Ventas netas** = precio lista − acuerdos comerciales (rappel, merma, fee logístico, reposición, descuento / promoción). Cada acuerdo es un rango con nombre (`p_Rappel`, `p_Merma`, `p_FeeLogistico`, `p_Reposicion`, `p_Dcto`) y se desagrega por SKU en Cadena de valor y por mes en EERR.
-- **Descuento por producto (activaciones)**: % por SKU y mes en Supuestos mensuales (filas 16-42), sobre el precio lista Walmart. Se resta de la venta neta por SKU en Demanda y aparece como línea propia en EERR (`(-) Descuento por producto (activaciones)`). No cambia el volumen ni el PVP.
-- **Sell-out** = salas activas × rotación (unid/sala/semana) × semanas por mes × estacionalidad × mix del SKU en la cadena.
+- **Descuento por producto (activaciones)**: % por SKU y mes en Supuestos mensuales (filas 16-42), sobre el precio lista Walmart. Se resta de la venta neta por SKU en Demanda y aparece como línea propia en EERR (`(-) Descuento por producto (activaciones)`). No cambia el PVP.
+- **Alza en sell-out por activación**: % por SKU y mes en Supuestos mensuales (filas 45-71). Multiplica el sell-out del SKU en Demanda; el sell-in, el stock objetivo, los contenedores, el costo de venta, la logística y la comisión KAM se ajustan solos. La cañería no cambia.
+- **Sell-out** = salas activas × rotación (unid/sala/semana) × semanas por mes × estacionalidad × mix del SKU en la cadena × (1 + alza por activación).
 - **Llenado de cañería** = salas nuevas × rotación × (semanas de stock en sala + semanas en CD).
 - **Sell-in** (lo que se factura) = sell-out + cañería.
 - **Contenedores que llegan** (automático, hoja Demanda): stock objetivo al cierre = sell-in del mes siguiente × cobertura (`p_Cobertura`, 0,75 meses). Si el stock inicial no alcanza para el sell-in del mes más el stock objetivo, se piden los contenedores necesarios (redondeo hacia arriba). La fila de ajuste manual en Supuestos mensuales suma o resta contenedores. Los pagos a Aliex se fechan según la llegada: anticipo = llegada − producción − tránsito; saldo contra BL = llegada − tránsito.
