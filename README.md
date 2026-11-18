@@ -32,7 +32,8 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 
 - **Costo en plaza** = FOB USD × factor sobre FOB × tipo de cambio.
 - **Precio lista Walmart** = PVP bruto / (1 + IVA) × (1 − margen frontal retail).
-- **Ventas netas** = precio lista − acuerdos comerciales (rappel, no devolución, merma, centralización, B2B, descuento).
+- **Ventas netas** = precio lista − acuerdos comerciales Walmart: rappel 4%, merma 2%, fee logístico 6% (rango 5–6%), reposición 3% (rango 2–3%), fee última milla 3,5% y descuento/promoción. Total 18,5% (`p_Acuerdos`). En los rangos se usa el máximo (conservador).
+- **Margen frontal retail** = 35% − rappel − merma (con el acuerdo actual, 29%).
 - **Sell-out** = salas activas × rotación (unid/sala/semana) × semanas por mes × estacionalidad × mix del SKU en la cadena.
 - **Llenado de cañería** = salas nuevas × rotación × (semanas de stock en sala + semanas en CD).
 - **Sell-in** (lo que se factura) = sell-out + cañería.
@@ -56,9 +57,12 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 
 ## Resultados con los supuestos actuales
 
-- Ventas netas del período: $360,4M; margen bruto 30,9%.
-- EBITDA del período: $2,6M (0,7%).
-- 10 contenedores; caja mínima $14,8M en julio 2027 (uso máximo de caja ≈$85M de los $100M iniciales); caja final marzo 2028 ≈$27,0M.
+Acuerdo comercial Walmart actualizado en noviembre de 2026.
+
+- Ventas netas del período: $342,4M; margen bruto $98,0M (28,6%).
+- EBITDA del período: $3,3M (1,0%); primeros 12 meses de venta: $13,7M (4,0%).
+- Resultado neto del período: −$2,4M. Fees diferidos al cierre: $2,7M.
+- 10 contenedores; caja mínima $15,4M en marzo 2027; caja final marzo 2028 ≈$25,7M.
 
 ## Nota sobre el horizonte
 
