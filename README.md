@@ -37,7 +37,7 @@ Horizonte: mensual, noviembre 2026 a marzo 2029 (29 meses, columnas E:AG; total 
 - **Sell-out** = salas activas × rotación (unid/sala/semana) × semanas por mes × estacionalidad × mix del SKU en la cadena.
 - **Llenado de cañería** = salas nuevas × rotación × (semanas de stock en sala + semanas en CD).
 - **Sell-in** (lo que se factura) = sell-out + cañería.
-- **Contenedores que llegan** (automático, hoja Demanda): stock objetivo al cierre = sell-in del mes siguiente × cobertura (`p_Cobertura`, 0,75 meses). Si el stock inicial no alcanza para el sell-in del mes más el stock objetivo, se piden los contenedores necesarios (redondeo hacia arriba). La fila de ajuste manual en Supuestos mensuales suma o resta contenedores. Los pagos a Aliex se fechan según la llegada: anticipo = llegada − producción − tránsito; saldo contra BL = llegada − tránsito.
+- **Contenedores que llegan** (automático, hoja Demanda): stock objetivo al cierre = sell-in del mes siguiente × cobertura (`p_Cobertura`, 0,75 meses). El cálculo se hace por SKU: se piden los contenedores necesarios (redondeo hacia arriba) para que el SKU más exigido cubra su sell-in del mes más su stock objetivo, dado el mix fijo de cada contenedor. Así ningún SKU queda en quiebre, a costa de acumular stock de los demás. La fila de ajuste manual en Supuestos mensuales suma o resta contenedores. Los pagos a Aliex se fechan según la llegada: anticipo = llegada − producción − tránsito; saldo contra BL = llegada − tránsito.
 - **Mix de compra del contenedor** = participación de cada SKU en el sell-in total del período, para no acumular stock de SKU que una cadena no vende.
 - **EBITDA** = margen bruto − gastos operacionales (administración y finanzas, comercial, logística, marketing). El factoring y el impuesto van bajo el EBITDA.
 - **Fees GBT y Juan Bas**: % de la venta neta; solo se devengan si el EBITDA del mes queda sobre el mínimo (5% de la venta). Lo no pagado se difiere.
@@ -59,15 +59,14 @@ Horizonte: mensual, noviembre 2026 a marzo 2029 (29 meses, columnas E:AG; total 
 
 Con 65 salas por cadena desde abril 2027 y caja inicial $93M:
 
-- Ventas netas nov-2026 a mar-2029: $667,7M; margen bruto 32,7%; EBITDA $52,9M (7,9%).
-- Primeros 12 meses de venta: ventas netas $348,3M; EBITDA $28,6M (8,2%).
-- Primeros 24 meses de venta (abr-2027 a mar-2029): ventas netas $667,7M; EBITDA $62,7M (9,4%).
-- 15 contenedores; caja mínima $11,2M en marzo 2027; caja final marzo 2029 ≈$122,1M (inflada por la nota del horizonte).
-- El control de quiebres de stock marca SKU sin stock en varios meses de 2028-2029: el total de unidades alcanza, pero no para todos los SKU.
+- Ventas netas nov-2026 a mar-2029: $667,7M; margen bruto 32,7%; EBITDA $46,1M (6,9%).
+- Primeros 12 meses de venta: ventas netas $348,3M; EBITDA $25,5M (7,3%). Primeros 24 meses: EBITDA $55,8M (8,4%).
+- 17 contenedores; sin quiebres de stock. Caja mínima $8,3M en febrero 2028; caja final marzo 2029 ≈$31,6M.
+- El stock en bodega sube de ≈20 mil a ≈60 mil unidades al cierre, porque el mix fijo del contenedor no calza exacto con la venta por SKU.
 
 ## Nota sobre el horizonte
 
-A Aliex se le paga antes de la llegada (anticipo = llegada − producción − tránsito; saldo = llegada − tránsito). Para no subestimar los pagos de los últimos meses, el Flujo de caja asume que después de marzo 2029 siguen llegando contenedores al mismo ritmo del último mes (`Demanda!AG15`), y registra sus anticipos y saldos dentro del horizonte. Si en el último mes no llega contenedor, esa regla no registra pagos futuros y la caja final queda sobrestimada.
+A Aliex se le paga antes de la llegada (anticipo = llegada − producción − tránsito; saldo = llegada − tránsito). Para no subestimar los pagos de los últimos meses, el Flujo de caja asume que después de marzo 2029 siguen llegando contenedores al ritmo promedio de los últimos 12 meses (`Demanda!E15:AG15`), y registra sus anticipos y saldos dentro del horizonte.
 
 ## Extender el horizonte
 
