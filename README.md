@@ -20,7 +20,7 @@ Horizonte: mensual, noviembre 2026 a marzo 2029 (29 meses, columnas E:AG; total 
 | Logística | Costo Globalship por ítem de cobro (driver × tarifa UF × UF) |
 | EERR | Ventas netas, margen por sabor y formato, gastos por área, EBITDA, factoring, impuesto, resultado neto |
 | Flujo de caja | Cobranza/factoring, pagos Aliex (anticipo y saldo), internación, IVA, F29, honorarios líquidos |
-| Resumen | KPIs (período completo y primeros 12 meses de venta), controles del modelo y gráfico mensual |
+| Resumen | KPIs (período completo, primeros 12 y primeros 24 meses de venta), controles del modelo y gráfico mensual |
 | Sensibilidad Aliex | Efecto en EBITDA de descuentos sobre el FOB de Aliex |
 
 ## Estructura de las tablas
@@ -61,6 +61,7 @@ Con 65 salas por cadena desde abril 2027 y caja inicial $93M:
 
 - Ventas netas nov-2026 a mar-2029: $667,7M; margen bruto 32,7%; EBITDA $52,9M (7,9%).
 - Primeros 12 meses de venta: ventas netas $348,3M; EBITDA $28,6M (8,2%).
+- Primeros 24 meses de venta (abr-2027 a mar-2029): ventas netas $667,7M; EBITDA $62,7M (9,4%).
 - 15 contenedores; caja mínima $11,2M en marzo 2027; caja final marzo 2029 ≈$122,1M (inflada por la nota del horizonte).
 - El control de quiebres de stock marca SKU sin stock en varios meses de 2028-2029: el total de unidades alcanza, pero no para todos los SKU.
 
