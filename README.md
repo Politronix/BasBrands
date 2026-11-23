@@ -4,7 +4,7 @@ Modelo en Google Sheets: [Bas Brands retail](https://docs.google.com/spreadsheet
 
 Bas Brands SpA (GBT group + Juan Bas) importa aderezos Juan Bas (mayonesa, ketchup, mostaza) desde la planta Aliex en Lima y los vende directo en Walmart Chile (Líder Hiper y Líder Express) desde abril 2027. Este modelo reemplaza el esquema anterior de licencia a Macan (royalty + fee de marketing).
 
-Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
+Horizonte: mensual, noviembre 2026 a marzo 2029 (29 meses, columnas E:AG; total en AH). Locale es_CL.
 
 ## Hojas
 
@@ -20,7 +20,8 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 | Logística | Costo Globalship por ítem de cobro (driver × tarifa UF × UF) |
 | EERR | Ventas netas, margen por sabor y formato, gastos por área, EBITDA, factoring, impuesto, resultado neto |
 | Flujo de caja | Cobranza/factoring, pagos Aliex (anticipo y saldo), internación, IVA, F29, honorarios líquidos |
-| Resumen | KPIs, controles del modelo y gráfico mensual |
+| Resumen | KPIs (período completo y primeros 12 meses de venta), controles del modelo y gráfico mensual |
+| Sensibilidad Aliex | Efecto en EBITDA de descuentos sobre el FOB de Aliex |
 
 ## Estructura de las tablas
 
@@ -56,10 +57,17 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 
 ## Resultados con los supuestos actuales
 
-- Ventas netas del período: $360,4M; margen bruto 30,9%.
-- EBITDA del período: $2,6M (0,7%).
-- 10 contenedores; caja mínima $14,8M en julio 2027 (uso máximo de caja ≈$85M de los $100M iniciales); caja final marzo 2028 ≈$27,0M.
+Con 65 salas por cadena desde abril 2027 y caja inicial $93M:
+
+- Ventas netas nov-2026 a mar-2029: $667,7M; margen bruto 32,7%; EBITDA $52,9M (7,9%).
+- Primeros 12 meses de venta: ventas netas $348,3M; EBITDA $28,6M (8,2%).
+- 15 contenedores; caja mínima $11,2M en marzo 2027; caja final marzo 2029 ≈$122,1M (inflada por la nota del horizonte).
+- El control de quiebres de stock marca SKU sin stock en varios meses de 2028-2029: el total de unidades alcanza, pero no para todos los SKU.
 
 ## Nota sobre el horizonte
 
-A Aliex se le paga antes de la llegada (anticipo = llegada − producción − tránsito; saldo = llegada − tránsito). Para no subestimar los pagos de feb y mar 2028, el Flujo de caja asume que después de marzo 2028 siguen llegando contenedores al mismo ritmo del último mes (`Demanda!U15`), y registra sus anticipos y saldos dentro del horizonte.
+A Aliex se le paga antes de la llegada (anticipo = llegada − producción − tránsito; saldo = llegada − tránsito). Para no subestimar los pagos de los últimos meses, el Flujo de caja asume que después de marzo 2029 siguen llegando contenedores al mismo ritmo del último mes (`Demanda!AG15`), y registra sus anticipos y saldos dentro del horizonte. Si en el último mes no llega contenedor, esa regla no registra pagos futuros y la caja final queda sobrestimada.
+
+## Extender el horizonte
+
+Insertar las columnas nuevas antes de la última columna de meses en Supuestos mensuales, Demanda, Logística, EERR y Flujo de caja (así los rangos y totales se amplían solos), copiar la penúltima columna en las nuevas y también en la última. Revisar `Demanda` fila 18 (mira el mes siguiente), los supuestos de entrada de los meses nuevos, la tabla mensual y el gráfico de Resumen, y los textos del período en Portada, Resumen y Sensibilidad Aliex.
