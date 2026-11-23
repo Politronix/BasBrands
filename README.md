@@ -38,7 +38,7 @@ Horizonte: mensual, noviembre 2026 a marzo 2029 (29 meses, columnas E:AG; total 
 - **Llenado de cañería** = salas nuevas × rotación × (semanas de stock en sala + semanas en CD).
 - **Sell-in** (lo que se factura) = sell-out + cañería.
 - **Contenedores que llegan** (automático, hoja Demanda): stock objetivo al cierre = sell-in del mes siguiente × cobertura (`p_Cobertura`, 0,75 meses). El cálculo se hace por SKU: se piden los contenedores necesarios (redondeo hacia arriba) para que el SKU más exigido cubra su sell-in del mes más su stock objetivo, dado el mix fijo de cada contenedor. Así ningún SKU queda en quiebre, a costa de acumular stock de los demás. La fila de ajuste manual en Supuestos mensuales suma o resta contenedores. Los pagos a Aliex se fechan según la llegada: anticipo = llegada − producción − tránsito; saldo contra BL = llegada − tránsito.
-- **Mix de compra del contenedor** = participación de cada SKU en el sell-in total del período, para no acumular stock de SKU que una cadena no vende.
+- **Mix de compra del contenedor** = participación de cada SKU en el sell-in total del período, para no acumular stock de SKU que una cadena no vende. Las cajas de cada SKU se redondean al entero más cercano (no hacia abajo, que dejaba corto a los SKU chicos como los squeeze), y el SKU de mayor participación llena el espacio que queda hasta `p_LlenadoObj`, para no pasar el 100% de cubicaje.
 - **EBITDA** = margen bruto − gastos operacionales (administración y finanzas, comercial, logística, marketing). El factoring y el impuesto van bajo el EBITDA.
 - **Fees GBT y Juan Bas**: % de la venta neta; solo se devengan si el EBITDA del mes queda sobre el mínimo (5% de la venta). Lo no pagado se difiere.
 - **Honorarios** (Juan Bas, Rodrigo Mena): gasto bruto en el EERR; en el flujo se paga el líquido y la retención va al F29 del mes siguiente. Si el fijo de Rodrigo es líquido, se calcula el bruto (gross-up).
@@ -59,10 +59,10 @@ Horizonte: mensual, noviembre 2026 a marzo 2029 (29 meses, columnas E:AG; total 
 
 Con 65 salas por cadena desde abril 2027 y caja inicial $93M:
 
-- Ventas netas nov-2026 a mar-2029: $667,7M; margen bruto 32,7%; EBITDA $46,1M (6,9%).
-- Primeros 12 meses de venta: ventas netas $348,3M; EBITDA $25,5M (7,3%). Primeros 24 meses: EBITDA $55,8M (8,4%).
-- 17 contenedores; sin quiebres de stock. Caja mínima $8,3M en febrero 2028; caja final marzo 2029 ≈$31,6M.
-- El stock en bodega sube de ≈20 mil a ≈60 mil unidades al cierre, porque el mix fijo del contenedor no calza exacto con la venta por SKU.
+- Ventas netas nov-2026 a mar-2029: $667,7M; margen bruto 32,7%; EBITDA $51,9M (7,8%).
+- Primeros 12 meses de venta: EBITDA $27,8M (8,0%). Primeros 24 meses: EBITDA $61,6M (9,2%).
+- 16 contenedores; sin quiebres de stock. Stock en bodega entre ≈11 y ≈30 mil unidades (sube con cada llegada y baja con la venta).
+- Caja mínima $11,1M en marzo 2027; caja final marzo 2029 ≈$62,7M.
 
 ## Nota sobre el horizonte
 
