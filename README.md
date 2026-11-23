@@ -35,11 +35,11 @@ Horizonte: mensual, noviembre 2026 a marzo 2029 (29 meses, columnas E:AG; total 
 - **Precio lista Walmart** = PVP bruto / (1 + IVA) × (1 − margen frontal retail).
 - **Ventas netas** = precio lista − acuerdos comerciales (rappel, no devolución, merma, centralización, B2B, descuento).
 - **Sell-out** = salas activas × rotación (unid/sala/semana) × índice de rotación × semanas por mes × estacionalidad × mix del SKU en la cadena.
-- **Llenado de cañería** = salas nuevas × rotación × índice de rotación × (semanas de stock en sala + semanas en CD), más la reposición extra en salas existentes cuando sube la rotación.
+- **Llenado de cañería** = cajas por SKU por sala nueva × unidades por caja, para cada SKU del surtido de la cadena: Líder Hiper 2 cajas (`p_CajasHiper`), Líder Express 1 caja (`p_CajasExpress`). Hoy: 246 unidades por sala Hiper (7 SKU) y 75 por sala Express (5 SKU).
 - **Crecimiento mes a mes**: dos palancas, `p_CrecSalas` y `p_CrecRotacion` en Parámetros (hoy 0%). Supuestos mensuales tiene una fila por cada una que toma el parámetro por defecto y se puede sobrescribir en cualquier mes. Salas = salas del mes anterior × (1 + crecimiento de salas), desde el mes siguiente al primero con salas; escribir un número en la fila de salas fija ese mes a mano. El índice de rotación parte en 1 en el mes de inicio de ventas y acumula el crecimiento de rotación. Ejemplo: con +1% de salas y +1% de rotación al mes, ventas netas del período $857,6M, EBITDA $87,7M (10,2%), 20 contenedores y 163 salas al cierre.
 - **Sell-in** (lo que se factura) = sell-out + cañería.
-- **Contenedores que llegan** (automático, hoja Demanda): stock objetivo al cierre = sell-in del mes siguiente × cobertura (`p_Cobertura`, 0,75 meses). El cálculo se hace por SKU: se piden los contenedores necesarios (redondeo hacia arriba) para que el SKU más exigido cubra su sell-in del mes más su stock objetivo, dado el mix fijo de cada contenedor. Así ningún SKU queda en quiebre, a costa de acumular stock de los demás. La fila de ajuste manual en Supuestos mensuales suma o resta contenedores. Los pagos a Aliex se fechan según la llegada: anticipo = llegada − producción − tránsito; saldo contra BL = llegada − tránsito.
-- **Mix de compra del contenedor** = participación de cada SKU en el sell-in total del período, para no acumular stock de SKU que una cadena no vende. Las cajas de cada SKU se redondean al entero más cercano (no hacia abajo, que dejaba corto a los SKU chicos como los squeeze), y el SKU de mayor participación llena el espacio que queda hasta `p_LlenadoObj`, para no pasar el 100% de cubicaje.
+- **Contenedores que llegan** (automático, hoja Demanda): cada SKU pide las cajas que le faltan para cubrir su sell-in del mes más el stock objetivo (sell-in del mes siguiente × `p_Cobertura`). La fila 108 suma la fracción de contenedor que ocupan esas cajas (cajas / cajas por contenedor del formato); los contenedores son esa fracción redondeada hacia arriba, y el espacio que sobra se completa con el mix de compra (hoja Contenedor). Así cada pedido tiene su propia composición. La fila de ajuste manual en Supuestos mensuales suma contenedores con el mix estándar. Los pagos a Aliex, la internación y el IVA de importación usan el FOB real de lo que llega (`Demanda` fila 21), fechado por producción y tránsito.
+- **Mix de compra del contenedor** = participación de cada SKU en el sell-in total del período. Se usa para completar el espacio libre de cada pedido. Las cajas de cada SKU se redondean al entero más cercano (no hacia abajo, que dejaba corto a los SKU chicos como los squeeze), y el SKU de mayor participación llena el espacio que queda hasta `p_LlenadoObj`, para no pasar el 100% de cubicaje.
 - **EBITDA** = margen bruto − gastos operacionales (administración y finanzas, comercial, logística, marketing). El factoring y el impuesto van bajo el EBITDA.
 - **Fees GBT y Juan Bas**: % de la venta neta; solo se devengan si el EBITDA del mes queda sobre el mínimo (5% de la venta). Lo no pagado se difiere.
 - **Honorarios** (Juan Bas, Rodrigo Mena): gasto bruto en el EERR; en el flujo se paga el líquido y la retención va al F29 del mes siguiente. Si el fijo de Rodrigo es líquido, se calcula el bruto (gross-up).
@@ -58,12 +58,11 @@ Horizonte: mensual, noviembre 2026 a marzo 2029 (29 meses, columnas E:AG; total 
 
 ## Resultados con los supuestos actuales
 
-Con 65 salas por cadena desde abril 2027 y caja inicial $93M:
+Con 65 salas por cadena desde abril 2027, caja inicial $93M y cañería por cajas:
 
-- Ventas netas nov-2026 a mar-2029: $667,7M; margen bruto 32,7%; EBITDA $51,9M (7,8%).
-- Primeros 12 meses de venta: EBITDA $27,8M (8,0%). Primeros 24 meses: EBITDA $61,6M (9,2%).
-- 16 contenedores; sin quiebres de stock. Stock en bodega entre ≈11 y ≈30 mil unidades (sube con cada llegada y baja con la venta).
-- Caja mínima $11,1M en marzo 2027; caja final marzo 2029 ≈$62,7M.
+- Ventas netas nov-2026 a mar-2029: $687,2M; margen bruto 33,2%; EBITDA $59,8M (8,7%).
+- 16 contenedores (2 para el lanzamiento en marzo 2027); sin quiebres de stock; stock en bodega entre ≈11 y ≈43 mil unidades.
+- Caja mínima −$22,6M en marzo 2027: el lanzamiento requiere aporte o financiamiento. Caja final marzo 2029 ≈$75,5M.
 
 ## Nota sobre el horizonte
 
