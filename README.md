@@ -34,7 +34,7 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 - **Costo en plaza** = FOB USD × factor sobre FOB × tipo de cambio.
 - **Precio lista Walmart** = PVP bruto / (1 + IVA) × (1 − margen frontal retail).
 - **Ventas netas** = precio lista − acuerdos comerciales (rappel, no devolución, merma, centralización, B2B, descuento).
-- **Mix por SKU** = % del sabor × % del formato dentro de ese sabor (tabla de Parámetros, una columna por sabor que suma 100%), repartido solo entre los SKU activos del sabor. Así cada sabor mantiene su participación aunque no tenga todos los formatos.
+- **Mix por SKU y cadena** = % del sabor en la cadena × % del formato dentro de ese sabor en la cadena (Parámetros: una tabla de sabores con columnas Líder Hiper y Líder Express, y una tabla de formato por sabor para cada cadena, `p_FormatoHiper` y `p_FormatoExpress`). Se reparte solo entre los SKU activos y en el surtido de la cadena. Fuente: estudio de mercado por cadena (nov-2026).
 - **Sell-out** = salas activas × rotación (unid/sala/semana) × semanas por mes × estacionalidad × mix del SKU en la cadena.
 - **Llenado de cañería** = salas nuevas × rotación × (semanas de stock en sala + semanas en CD).
 - **Sell-in** (lo que se factura) = sell-out + cañería.
@@ -49,7 +49,8 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 
 ## Pendientes de confirmar
 
-- Reparto de formatos dentro de cada sabor (Parámetros). Hoy provisorio: Mayonesa 7% squeeze, 35% pote, 58% DPK 490; Ketchup y Mostaza 10% squeeze, 90% DPK 490.
+- Sabores y formatos vienen del estudio de mercado de la categoría (Hiper 4.500 unid/sala/mes, Express 1.600). Con las rotaciones actuales Juan Bas tendría ≈2,9% de la categoría en Hiper y ≈2,2% en Express.
+- Ketchup y Mostaza squeeze no están en el surtido de Express, aunque en el mercado son 32% y 25% de su sabor.
 - Cañería de 2 cajas por SKU por sala Hiper: para Mostaza squeeze equivale a unos 3 años de venta por sala.
 
 - PVP de pote, DPK 380 y DPK 850 (hoy provisorios, calculados para ≈30% de margen).
