@@ -18,7 +18,7 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 | Contenedor | Contenedor 20' promedio según el mix de compra de todo el período; control de cubicaje. No es un contenedor real |
 | Contenedores | Cada contenedor que llega (desde Demanda): mes de llegada, de orden y de embarque, cajas por SKU, unidades, cubicaje y FOB |
 | Demanda | Cálculo automático de contenedores que llegan; por SKU y mes: sell-out, llenado de cañería, sell-in, llegadas, stock, ventas, costo, cajas y pallets |
-| Logística | Costo Globalship por ítem de cobro (driver × tarifa UF × UF) |
+| Logística | Costo Globalship por ítem de cobro (driver × tarifa UF × UF × (1 − descuento Globalship, `p_DescGlobalship`)) |
 | EERR | Ventas netas, margen por sabor y formato, gastos por área, EBITDA, factoring, impuesto, resultado neto |
 | Flujo de caja | Cobranza/factoring, pagos Aliex (anticipo y saldo), internación, IVA, F29, honorarios líquidos |
 | Resumen | KPIs, controles del modelo y gráfico mensual |
