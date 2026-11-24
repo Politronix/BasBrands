@@ -50,7 +50,6 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 ## Pendientes de confirmar
 
 - Sabores y formatos vienen del estudio de mercado de la categoría (Hiper 4.500 unid/sala/mes, Express 1.600). Con las rotaciones actuales Juan Bas tendría ≈2,9% de la categoría en Hiper y ≈2,2% en Express.
-- Ketchup y Mostaza squeeze no están en el surtido de Express, aunque en el mercado son 32% y 25% de su sabor.
 - Cañería de 2 cajas por SKU por sala Hiper: para Mostaza squeeze equivale a unos 3 años de venta por sala.
 
 - PVP de pote, DPK 380 y DPK 850 (hoy provisorios, calculados para ≈30% de margen).
