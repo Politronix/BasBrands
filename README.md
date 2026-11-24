@@ -11,11 +11,12 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 | Hoja | Qué contiene |
 |---|---|
 | Portada | Índice, convenciones de color y definiciones |
-| Parámetros | Todos los supuestos escalares editables (rangos con nombre `p_*` y tarifas Globalship `g_*`) |
+| Parámetros | Todos los supuestos escalares editables (rangos con nombre `p_*` y tarifas Globalship `g_*`), incluida la tabla de formato dentro de cada sabor (`p_TablaFormato`) |
 | Productos | 21 SKU Aliex: FOB, unidades por caja, capacidad de contenedor, cajas por pallet, PVP, switch Activo y surtido por cadena, mix calculado |
 | Supuestos mensuales | Salas activas por cadena, ajuste manual de contenedores (+/−), estacionalidad, degustaciones, marketing digital, fijo Rodrigo Mena, aportes |
 | Cadena de valor | FOB → costo en plaza → PVP → precio lista Walmart → acuerdos desagregados → precio neto → margen, por SKU |
-| Contenedor | Contenedor 20' mix según el mix de compra; control de cubicaje |
+| Contenedor | Contenedor 20' promedio según el mix de compra de todo el período; control de cubicaje. No es un contenedor real |
+| Contenedores | Cada contenedor que llega (desde Demanda): mes de llegada, de orden y de embarque, cajas por SKU, unidades, cubicaje y FOB |
 | Demanda | Cálculo automático de contenedores que llegan; por SKU y mes: sell-out, llenado de cañería, sell-in, llegadas, stock, ventas, costo, cajas y pallets |
 | Logística | Costo Globalship por ítem de cobro (driver × tarifa UF × UF) |
 | EERR | Ventas netas, margen por sabor y formato, gastos por área, EBITDA, factoring, impuesto, resultado neto |
@@ -33,11 +34,12 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 - **Costo en plaza** = FOB USD × factor sobre FOB × tipo de cambio.
 - **Precio lista Walmart** = PVP bruto / (1 + IVA) × (1 − margen frontal retail).
 - **Ventas netas** = precio lista − acuerdos comerciales (rappel, no devolución, merma, centralización, B2B, descuento).
+- **Mix por SKU** = % del sabor × % del formato dentro de ese sabor (tabla de Parámetros, una columna por sabor que suma 100%), repartido solo entre los SKU activos del sabor. Así cada sabor mantiene su participación aunque no tenga todos los formatos.
 - **Sell-out** = salas activas × rotación (unid/sala/semana) × semanas por mes × estacionalidad × mix del SKU en la cadena.
 - **Llenado de cañería** = salas nuevas × rotación × (semanas de stock en sala + semanas en CD).
 - **Sell-in** (lo que se factura) = sell-out + cañería.
 - **Contenedores que llegan** (automático, hoja Demanda): stock objetivo al cierre = sell-in del mes siguiente × cobertura (`p_Cobertura`, 0,75 meses). Si el stock inicial no alcanza para el sell-in del mes más el stock objetivo, se piden los contenedores necesarios (redondeo hacia arriba). La fila de ajuste manual en Supuestos mensuales suma o resta contenedores. Los pagos a Aliex se fechan según la llegada: anticipo = llegada − producción − tránsito; saldo contra BL = llegada − tránsito.
-- **Mix de compra del contenedor** = participación de cada SKU en el sell-in total del período, para no acumular stock de SKU que una cadena no vende.
+- **Mix de compra del contenedor** = participación de cada SKU en el sell-in total del período, para no acumular stock de SKU que una cadena no vende. La composición real de cada llegada está en la hoja Contenedores: la primera lleva la cañería de lanzamiento (2 cajas por SKU por sala Hiper nueva), por eso trae muchas más cajas de los SKU de baja rotación que el promedio de la hoja Contenedor.
 - **EBITDA** = margen bruto − gastos operacionales (administración y finanzas, comercial, logística, marketing). El factoring y el impuesto van bajo el EBITDA.
 - **Fees GBT y Juan Bas**: % de la venta neta; solo se devengan si el EBITDA del mes queda sobre el mínimo (5% de la venta). Lo no pagado se difiere.
 - **Honorarios** (Juan Bas, Rodrigo Mena): gasto bruto en el EERR; en el flujo se paga el líquido y la retención va al F29 del mes siguiente. Si el fijo de Rodrigo es líquido, se calcula el bruto (gross-up).
@@ -46,6 +48,9 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 - **Impuesto a la renta**: devengado sobre el resultado acumulado (absorbe pérdidas iniciales); PPM mensual en el F29.
 
 ## Pendientes de confirmar
+
+- Reparto de formatos dentro de cada sabor (Parámetros). Hoy provisorio: Mayonesa 7% squeeze, 35% pote, 58% DPK 490; Ketchup y Mostaza 10% squeeze, 90% DPK 490.
+- Cañería de 2 cajas por SKU por sala Hiper: para Mostaza squeeze equivale a unos 3 años de venta por sala.
 
 - PVP de pote, DPK 380 y DPK 850 (hoy provisorios, calculados para ≈30% de margen).
 - Capacidad real de cajas DPK 380/850 por contenedor (Aliex).
