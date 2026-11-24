@@ -53,9 +53,9 @@ Horizonte: mensual, noviembre 2026 a marzo 2028 (17 meses). Locale es_CL.
 - Cañería de 2 cajas por SKU por sala Hiper: para Mostaza squeeze equivale a unos 3 años de venta por sala.
 
 - PVP de pote, DPK 380 y DPK 850 (hoy provisorios, calculados para ≈30% de margen).
-- Capacidad de contenedor 20' = 10 pallets (Aliex, nov-2026; 40' = 20 pallets, no usado). DPK 380: 3.000 unid/pallet; DPK 850: 1.080; DPK 490 se asume igual al 380. La capacidad de los DPK se calcula como pallets × cajas por pallet.
+- Capacidad de contenedor 20' = 10 pallets (Aliex, nov-2026; 40' = 20 pallets, no usado). DPK 380: 3.000 unid/pallet; DPK 850: 1.080; DPK 490 se asume igual al 380. La capacidad de todos los formatos se calcula como pallets × cajas por pallet.
 - DPK 590 sin dato de Aliex (sigue en 1.200 cajas por contenedor y 65 por pallet).
-- Squeeze y pote: su capacidad (1.800 y 2.700 cajas) equivale a 18 pallets con las cajas por pallet actuales, más que los 10 pallets que informa Aliex. Confirmar si van a granel o en pallet.
+- Squeeze y pote van en pallet: su capacidad también es 10 pallets × cajas por pallet (1.000 y 1.500 cajas). Las cajas por pallet de squeeze (100) y pote (150) siguen estimadas; confirmar con Aliex.
 - Cobertura de stock objetivo (0,75 meses). Con 0,5 hay quiebre en julio 2027; con 1,0 la caja mínima baja a ≈$1,8M.
 - Rotaciones por cadena y rampa de salas (validar con Rodrigo Mena).
 - Montos de contabilidad, software, marketing y % de fees.
